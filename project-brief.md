@@ -3,7 +3,11 @@
 **Working document · 30 September 2026**  
 **Purpose:** Starting point for a separate project to design and build a new Memory(One) website at `memoryone.eu`.
 
-This brief collects the ideas and decisions from the conversation so far. It is a design and content handoff, not approved website copy or a record that the new site has been built. Statements about client outcomes, live features, costs, and rights should be checked with the relevant source before publication.
+This brief collects the ideas and decisions from the conversation so far, including Alexander's follow-up answers on 30 September 2026. It is a design and content handoff, not a record that the new site has been built. Explicitly supplied identity details, biography, publication permissions, and project decisions are recorded below; proposals and deferred decisions remain marked as such.
+
+**Current scope:** Update this brief only. Website implementation has not been authorized to begin. Make these changes on `main`, without creating another branch; Alexander will commit and push.
+
+**Working environment:** Primarily Codex Cloud, using the `memory-one-website` environment and the `M3G4W4TT5/memory-one-website` repository. Keep durable project context in this repository so future tasks and other devices can access it.
 
 ## 1. The central idea
 
@@ -43,19 +47,43 @@ The user described the third entry point as an **“AI consultant chat buddy”*
 
 **Background the user is comfortable stating:** studied Computer Science at the University of Copenhagen (DIKU); worked for two years at Novo Nordisk as a full stack developer. Do not infer a degree or other credentials that were not stated.
 
+### Confirmed public identity
+
+- **Name:** Alexander Watts.
+- **Portrait:** `profile_image.png`, supplied in the chat. Original device-local path: `/home/dev/pleasure/megawatts-world/site/assets/images/profile_image.png`. This path is a source reference, not a portable repository asset; make the supplied image available in the repository when asset preparation begins.
+- **Email:** aw@memoryone.eu.
+- **Phone:** +45 93951496.
+- **Location:** Copenhagen, Denmark.
+
+**Biography supplied by Alexander:**
+
+> I'm Alexander — a Computer Scientist, Full-Stack Developer, and AI enthusiast. I've landed here on Earth to solve hard problems, build smarter solutions, and hopefully leave the planet a little better than I found it. After much deliberation I have reached the conclusion that the meaning of life is to create, learn, and improve.
+
+**Public links:**
+
+- GitHub: https://github.com/M3G4W4TT5
+- X: https://x.com/M3G4W4TT5
+- Medium: https://megawatts.medium.com/
+- Reddit: https://www.reddit.com/user/M3G4W4TT5/
+- YouTube: https://www.youtube.com/@M3G4W4TT5
+- Personal site: https://www.megawatts.world/
+- Personal blog: https://blog.megawatts.world/
+
 ### Headline directions discussed, not selected
 
 - User’s line: **“AI creates potential. I create the solutions.”**
 - Alternative: **“AI creates potential. I make it useful.”**
 - Other directions raised: **“Good ideas deserve more than a demo”** and **“I help you figure out what to build—and build it.”**
 
-These are prompts for later copy work. The opening should leave room for software and design work that does not involve AI.
+These are prompts for later copy work. The opening should leave room for software and design work that does not involve AI. Alexander will settle the opening message and positioning later.
 
 ## 4. Relationship to megawatts.world
 
 `megawatts.world` is the truly personal site and may hold the fuller collection of personal projects and interests when it comes online. `memoryone.eu` is personal **for potential professional clients**. It can reveal personality and creative range, but the selection should help visitors understand the work, taste, and judgment they could hire.
 
 The sites can link to each other. They do not need to carry the same amount of detail or the same project selection.
+
+Use https://www.megawatts.world/ as the personal-site link. Alexander expects it to become active very soon; its current availability should not block planning or cause the link to be omitted.
 
 ## 5. Proposed visitor journey and site structure
 
@@ -70,7 +98,7 @@ The intended visitor path is: **recognise my situation → see how this person t
 | **Digital card** | A compact, independently shareable page at a memorable path such as `/card`, designed for a direct link or QR code. |
 | **Contact** | Embedded meeting booking and an enquiry form. Both should be easy to reach throughout the site. |
 
-This is a working information architecture. Home should remain concise even though Stories and Resources can grow.
+This is a working information architecture. Home should remain concise even though Stories and Resources can grow. Final page structure and whether Cases, Stories, Resources, and Experiments share an index will be worked out later.
 
 ### Home page sequence
 
@@ -84,7 +112,7 @@ This is a working information architecture. Home should remain concise even thou
 
 ## 6. Initial stories and evidence
 
-The following are the project narratives as described by the user in conversation. Confirm final wording, live status, media, exact costs, and what can be shown before turning them into public cases.
+The following are the project narratives as described by Alexander. His publication decisions and content plans are recorded alongside each case. Cases should be editable through Sanity so their wording, media, and status can be updated later.
 
 ### Didde / didde-mie.com / dance studio
 
@@ -94,7 +122,9 @@ The following are the project narratives as described by the user in conversatio
 
 **Point of the story:** A small initial request revealed adjacent needs that formed a more useful connected solution. Each addition should be explained by the value it created, not by technical novelty.
 
-**Technologies the user mentioned:** Pretix, Stripe, Purelymail, Nodemailer, VPS hosting, Sanity, and a ChatGPT/Sanity integration. The user described the combined ongoing cost as **under US$20 per month**. Check what that figure includes and whether it still holds before using it publicly. Also verify which components are live, tested, or still in progress when preparing the case.
+**Technologies the user mentioned:** Pretix, Stripe, Purelymail, Nodemailer, VPS hosting, Sanity, and a ChatGPT/Sanity integration. The user described the combined ongoing cost as **under US$20 per month**. The exact cost breakdown has not yet been supplied; this is separate from the website starter's domain-only cost statement.
+
+**Publication and status:** Alexander confirms that everything in this case can be shown publicly. The repository is public: https://github.com/M3G4W4TT5/dd-website. Hosting is expected very soon, and Alexander asks that the case be written as live. This is his supplied editorial direction, not an independently verified deployment status. Publish and maintain the case through Sanity; wording and status can be edited later.
 
 ### Independent Danish music professional
 
@@ -104,18 +134,22 @@ The following are the project narratives as described by the user in conversatio
 
 **Point of the story:** Show the change in an individual’s working day and sense of capability. The user described it as feeling as though the client had gained several assistants. Avoid presenting that metaphor as a measured staffing or productivity claim without supporting evidence. Decide what to name or show publicly with the client.
 
+**Content plan:** Alexander will add this later through Sanity as a separate user story, including identification, visuals, and any testimonial or outcome evidence. It is not required for the initial content preparation.
+
 ## 7. Creative snippets and experiments
 
 The user also makes Unity game demos, edits video from older archive footage, and creates other visual and code-based experiments. Include a **small, curated selection** to show creativity and range.
 
+**Confirmed rights and delivery plan:** Alexander confirms all publication rights for the creative material. He will supply two videos, potentially to use as short snippets, and is preparing four Unity demos for his GitHub. Include the demos on the page when they are ready. Final selection and homepage placement will be decided later.
+
 - On Home, use a few short glimpses that bring personality and movement to the page.
 - In Stories / Cases, consider a separate **Experiments** or **Sketchbook** stream for pieces that do not follow a client-problem narrative.
 - Give each piece enough context to say what the user made or explored; do not turn the professional site into a comprehensive personal archive.
-- Prefer short, accessible clips over large GIF files where practical. Check mobile behaviour, motion preferences, and rights for archive material before publication.
+- Prefer short, accessible clips over large GIF files where practical. Check mobile behaviour and motion preferences; publication rights for the planned material are confirmed by Alexander.
 
 ## 8. Writing, stories, and resources
 
-The user plans to write articles about builds and other work. The **personal blog** is intended to be the primary home for the writing, with Medium as another publication channel. Memory(One) should feature selected articles that are relevant to potential clients. During implementation, decide per article whether M(1) hosts a full version or a short introduction linking to the original, and set the appropriate original/canonical URL where applicable.
+The user plans to write articles about builds and other work. The **personal blog**, https://blog.megawatts.world/, is the primary home for the writing, with https://megawatts.medium.com/ as another publication channel. Memory(One) should host full versions of selected articles that are relevant to potential clients. Set the appropriate original/canonical URL where applicable; the canonical source for each cross-published article can be recorded in Sanity.
 
 Keep the editorial roles distinct:
 
@@ -134,11 +168,11 @@ The first concrete resource is the public [Astro + Sanity + Cloudflare Pages sta
 
 `Astro static site → Sanity-edited content → Cloudflare Pages build and hosting → contact endpoint with Turnstile and Resend`
 
-Show the finished Memory(One) site as a real example of that approach. Link to the starter, its setup guide, and—if created and made public—a guided GPT or similar learning companion. Offer a direct path to book the user for design, implementation, review, or coaching.
+Show the finished Memory(One) site as a real example of that approach. Link to the starter and its setup guide. People should use the materials with their own GPTs; a separate public guided GPT is not planned. Offer a direct path to book the user for design, implementation, review, or coaching.
 
 The resource should make clear that a template is a starting point: a real site still needs its own design, content, accounts, contact configuration, testing, and launch decisions. The starter’s README says its local demo contact form is disabled and the demo is marked `noindex` until a real site is ready.
 
-**Cost wording:** Small sites may fit within free service tiers at modest usage, with the domain often the main recurring cost. Do not promise “only pay for the domain” for every site; provider limits, usage, extra services, and future pricing can change that. Check current terms before publishing a cost example.
+**Cost direction confirmed by Alexander:** For the prescribed starter setup, the only required paid item is the domain; the other services use free tiers. Use this as the intended cost message for that setup. This confirmation comes from Alexander, not a fresh provider-pricing audit, and applies to the described setup rather than arbitrary usage or extra services.
 
 ### The site as its own case
 
@@ -148,11 +182,22 @@ Add a small **“How I built this site”** link on Home and a fuller Resource o
 
 Create a dedicated card page that can be opened directly from a link or QR code shared in person. The desired feel is a **flashy holographic card, loosely inspired by Balatro**, while remaining legible and usable on a phone.
 
-Suggested essentials: name, Memory(One), a very short description, portrait or visual identity, **Book a meeting**, email/contact, a way to save contact details, and selected links such as the main M(1) site and `megawatts.world`. Final links, title, QR destination, and card content remain to be selected. Motion should have an accessible still or reduced-motion presentation.
+**Confirmed card fields:** Name, Email, Phone, GitHub/X, Location, and Picture. Use Alexander Watts, aw@memoryone.eu, +45 93951496, the GitHub and X links in section 3, Copenhagen, Denmark, and the supplied portrait. The card path and QR destination remain to be selected. Motion should have an accessible still or reduced-motion presentation.
 
 ## 10. Technical foundation
 
 The new site is intended to be built from the user’s [public starter repository](https://github.com/M3G4W4TT5/astro-sanity-cloudflare-starter), with **Astro, Sanity, React where interaction needs it, and Cloudflare Pages**. The starter provides a generic local demo, a Sanity Studio workspace, and a Cloudflare Pages contact endpoint using Turnstile and Resend. The Memory(One) site will be designed and built with **Codex assistance**.
+
+### Existing contact integrations to assess for reuse
+
+The old website repository, https://github.com/Memory-One/website, already has scripted meeting booking integrated with Proton Calendar and a contact form connected to Proton Mail. Assess reuse during implementation before selecting a new booking provider or replacing the existing contact flow. Use aw@memoryone.eu as the public contact address; verify the actual form recipient and booking configuration when reviewing the existing code. The starter's Turnstile/Resend endpoint is a foundation, not a decision to replace the Proton integrations.
+
+### Deployment and routing direction
+
+- Use the starter's prescribed GitHub-to-Cloudflare Pages workflow for automatic deployment.
+- Alexander describes the current `memoryone.eu` routing as involving a VPS and Cloudflare, with complicated Workers supporting the old site. The desired replacement is the simpler Pages workflow, retiring the old site Workers during the eventual migration. Inspect the current routing before determining the exact changes; do not change infrastructure as part of this brief update.
+- Use GitHub history and reverts as the rollback approach, redeploying the earlier code through the same workflow.
+- Analytics may be added later and are not an initial requirement.
 
 At the time this brief was prepared, the starter’s default branch exposed a homepage Sanity schema, not ready-made case, article, resource, or experiment models. Those content types, along with their pages and editorial fields, are part of the new site work. Keep the starter generic; create the Memory(One) implementation from it rather than treating the demo as publishable content.
 
@@ -166,13 +211,15 @@ Possible Sanity content model, to refine during implementation:
 
 ### Primary calls to action
 
-- **Book a meeting:** direct meeting widget or booking flow, provider and availability to be chosen.
-- **Send an enquiry:** contact form.
+- **Book a meeting:** assess reuse of the existing Proton Calendar booking flow; confirm availability and configuration during implementation.
+- **Send an enquiry:** assess reuse of the existing Proton Mail contact form.
 - From relevant resources: **Use the template / learn how** and **work with me**.
 
 ## 11. Visual references to review
 
 The user supplied these as inspiration, not as approved designs or sources to copy. Review them together to identify which qualities matter for Memory(One):
+
+Alexander will provide the visual-direction choices later.
 
 - https://levo-studio.com/
 - https://deadnorth.io/
@@ -187,17 +234,19 @@ The user supplied these as inspiration, not as approved designs or sources to co
 
 ## 12. Items to resolve in the build project
 
-These are the main pieces of information or material still needed. They are not reasons to delay concept and prototype work.
+The identity, biography, public links, card fields, creative publication rights, article format, starter-learning approach, intended starter cost message, and deployment direction have been supplied. The following remain open or are scheduled for later:
 
-- The exact name, portrait, short biography, social/contact links, and card details to publish.
-- The meeting-booking provider and the contact form destination.
-- Which Didde components and outcomes are public and current, and what the under-US$20 figure covers.
-- The music professional’s preferred level of identification, available visuals, and any testimonial or outcome evidence.
-- Which Unity demos and archive-video excerpts best represent the creative side, with publication rights checked.
-- The personal blog’s eventual URL and the publication/linking policy for articles also shown on M(1) or Medium.
-- Whether a public guided GPT will be created for the website starter, and what it should and should not guide users through.
-- Which visual qualities from the inspiration sites to carry into the original Memory(One) design.
-- Current free-tier limits and service costs when publishing claims about the website pipeline.
+- **Design decisions, deferred:** Visual qualities from the references, opening message and positioning, final page architecture/shared index, and strongest projects to feature. Alexander will decide these later.
+- **Portrait asset preparation:** Bring the supplied portrait into the repository when implementation/assets work begins; the original device-local path is not accessible across devices by itself.
+- **Existing integrations:** Review the old repository for reusable Proton Calendar and Proton Mail code; confirm booking availability, form recipient, and compatibility with Pages.
+- **Didde case preparation:** Prepare Sanity-editable copy and media using the publication permission and requested live framing above. The exact under-US$20 cost breakdown is still unspecified.
+- **Music professional story:** Alexander will supply and add this later through Sanity.
+- **Creative assets:** Alexander will supply two videos and publish four Unity demos; choose snippets and placement when ready. Rights are already confirmed.
+- **Digital card:** Choose its path and QR destination; the required fields are settled.
+- **Cross-published articles:** Record the original/canonical source per article.
+- **Launch details:** Inspect existing VPS/Cloudflare routing and old Workers before migration, and settle applicable privacy copy and final launch approval. Analytics are optional for later; the deployment and GitHub rollback approach are settled.
+
+These open items do not generally prevent future concept work, but Alexander has explicitly asked not to begin implementation yet.
 
 ## 13. Implementation sequence for the new project
 
@@ -210,8 +259,14 @@ These are the main pieces of information or material still needed. They are not 
 ## Source links
 
 - Current site: https://memoryone.eu/
+- Existing website and Proton integrations: https://github.com/Memory-One/website
+- Memory(One) V2 repository: https://github.com/M3G4W4TT5/memory-one-website
+- Didde client project: https://github.com/M3G4W4TT5/dd-website
+- Personal site: https://www.megawatts.world/
+- Personal blog: https://blog.megawatts.world/
+- Medium: https://megawatts.medium.com/
 - Intended starter: https://github.com/M3G4W4TT5/astro-sanity-cloudflare-starter
 - Starter README: https://github.com/M3G4W4TT5/astro-sanity-cloudflare-starter/blob/main/README.md
 - Current provider information for future cost copy: [Cloudflare Pages limits](https://developers.cloudflare.com/pages/platform/limits/), [Sanity pricing](https://www.sanity.io/pricing), [Turnstile plans](https://developers.cloudflare.com/turnstile/plans/), [Resend pricing](https://resend.com/pricing).
 
-The conversation with the user is the source for the positioning, desired tone, stories, site division, examples, and priorities above. The repository and provider links support the technical and cost-related notes; they do not validate client outcomes or constitute launch approval.
+The conversation with Alexander is the source for the positioning, desired tone, identity, supplied biography, stories, publication permissions, site division, examples, priorities, and follow-up decisions above. Repository and provider links are references for later implementation; they have not been newly audited in this brief update and do not constitute launch approval.
