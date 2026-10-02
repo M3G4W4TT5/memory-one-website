@@ -20,7 +20,7 @@ Explore rendering the 3D logomark directly on the construction page with a chrom
 
 ## Colours
 
-Supplied brand palette. The construction page uses `#012138` for the background, `#CFCFC5` for page text and button fill, `#000000` for button text, and `#FF7F00` for the dot after “construction”. The top and bottom dividers are removed. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
+Supplied brand palette. The construction page uses `#012138` for the background, `#CFCFC5` for all text, including button text, and `#FF7F00` for button fill and the dot after “construction”. The top and bottom dividers are removed. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
 
 | Colour | Hex |
 | --- | --- |
@@ -55,7 +55,7 @@ Supplied brand palette. The construction page uses `#012138` for the background,
 | Contact details | FK Grotesk Mono Medium (500) |
 | Introductory body text | FK Grotesk Regular (400) |
 | Footer | FK Grotesk SemiMono Medium (500) |
-| Button text | FK Grotesk Neue Thin (100) |
+| Button text | FK Grotesk Neue Light (300) |
 
 These five original OTF files are self-hosted in `public/fonts/` and loaded with `@font-face`. This page-specific mapping takes precedence over the general roles above. Future typography scale and spacing decisions remain iterative. The construction page has no eyebrow text or “Work in progress” status indicator.
 
