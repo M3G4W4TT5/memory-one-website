@@ -8,6 +8,7 @@ Confirmed setup, 2 October 2026.
 - `main` is production: `memoryone.eu` and `www.memoryone.eu`.
 - `test` is the working preview: `preview.memoryone.eu`, pointing to `test.memory-one.pages.dev`.
 - Preview deployments are enabled only for `test`. Production deployments are enabled for `main`.
+- Initial `main` and `test` deployments succeeded when triggered through the Cloudflare API. Automatic deployments did not appear after subsequent GitHub commits, even after reconnecting the Git source. Check the Cloudflare Workers and Pages GitHub App installation's access to `M3G4W4TT5/memory-one-website` and verify a new push before relying on automatic deployment. Until that is fixed, trigger the branch deployment manually in Cloudflare.
 - Cloudflare Access protects `preview.memoryone.eu` and `*.memory-one.pages.dev`, including branch and individual deployment URLs. Only `dev@memoryone.eu` is allowed, using an email login code; sessions last 24 hours.
 - Public contact: `contact@memoryone.eu`, `+45 93951496`, and the supplied Proton Calendar booking link.
 - The construction page is static and does not fetch Sanity content. Its HTML is marked `noindex`; remove that at launch. Cache-Control is `no-store` during development; revisit caching at launch.
