@@ -46,13 +46,13 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
           <a href={bookingUrl} target="_blank" rel="noopener noreferrer">book a meeting</a>
         </div>
       </section>
-      </div>
       <aside class="construction-thought" aria-label="Building the website">
         <ThoughtLine client:load working={true} steps={thoughtSteps} label="Thinking…"
           doneLabel="Thought for" glyph="sparkle" fontSize={16} breathPeriod={1.6}
           breathDepth={0.45} settleDuration={350} settleBlur={2} collapsible
           collapseOnSettle showTimer settleAfter={0} color="#CFCFC5" />
       </aside>
+      </div>
     </main>
     </div>
     <a class="github-button" href="https://github.com/M3G4W4TT5" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
@@ -81,7 +81,8 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   :global(a:focus-visible) { outline: 2px solid #008580; outline-offset: 7px; }
   .wrap { width: min(100% - 4rem, 1240px); margin-inline: auto; }
   main { margin-block: auto; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 3rem; min-height: clamp(380px, 65svh, 640px); }
-  .construction-thought { width: min(100%, 320px); justify-self: center; }
+  .construction-copy { position: relative; }
+  .construction-thought { position: absolute; top: 0; left: calc(100% + 3rem + (100% / 1.15 - 320px) / 2); width: 320px; }
   h2 { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 500; font-family: 'FK Grotesk Mono', monospace; }
   h1 { font-size: clamp(2.65rem, 6.2vw, 5.6rem); line-height: .94; letter-spacing: -.055em; font-weight: 500; margin: 0 0 2rem; }
   .period { color: #FF7F00; }
@@ -110,7 +111,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   .github-button:hover .svg-container { background: rgb(156 156 156 / .466); backdrop-filter: blur(4px); }
   @media (max-width: 900px) {
     main { grid-template-columns: 1fr; gap: 3rem; min-height: 0; margin-block: 0; }
-    .construction-thought { width: max-content; max-width: 100%; }
+    .construction-thought { position: static; width: max-content; max-width: 100%; margin: 3rem auto 0; }
     .page-view { justify-content: flex-start; }
   }
   @media (max-width: 600px) {
