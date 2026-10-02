@@ -1,5 +1,5 @@
 ---
-import ThoughtLine from '../components/ThoughtLine';
+import ConstructionThought from '../components/ConstructionThought';
 const thoughtSteps = ['Searching our services', 'Drafting an answer', 'Web Design & UX', 'Web Development', 'Branding & Visual Identity', 'Software Development', 'Agentic AI', 'System Integration', 'AI Search Optimisation', 'SEO', 'Managed Operations', 'Consulting', 'Finish building website ...'];
 const spinnerDelays = [0.1,0.2,0.3,0.4,0.5,0.2,0.3,0.4,0.5,0.6,0.3,0.4,0.5,0.6,0.7,0.4,0.5,0.6,0.7,0.8,0.5,0.6,0.7,0.8,0.9];
 const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW4XrxufM9IWHskXnp580=';
@@ -47,10 +47,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
         </div>
       </section>
       <aside class="construction-thought" aria-label="Building the website">
-        <ThoughtLine client:load working={true} steps={thoughtSteps} label="Thinking…"
-          doneLabel="Thought for" glyph="sparkle" fontSize={16} breathPeriod={1.6}
-          breathDepth={0.45} settleDuration={350} settleBlur={2} collapsible
-          collapseOnSettle showTimer settleAfter={0} color="#CFCFC5" />
+        <ConstructionThought client:load steps={thoughtSteps} />
       </aside>
       </div>
     </main>
