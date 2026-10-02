@@ -12,7 +12,7 @@ Updated: 2 October 2026.
 
 [Memory(One) logos and 3D logomark GLB](https://drive.google.com/drive/folders/1McsZKn6_XSbPqdDvI8zM_DXSUOSwwh-J)
 
-Use the official Memory(One) logo assets for brand placement. The folder above is the supplied source for both the logo collection and the 3D logomark; individual files have not yet been selected or imported into this repository.
+Use the official Memory(One) logo assets for brand placement. The folder above is the supplied source for both the logo collection and the 3D logomark. The construction page uses the official one-colour logo for a light background and the supplied SVG favicon. Both logo variants are saved in `public/brand/`: `memory-one-logo-on-light.webp` (dark artwork) and `memory-one-logo-on-dark.webp` (light artwork). Use the matching original asset for each background rather than recreating the wordmark as text.
 
 ### Construction page direction
 
@@ -47,7 +47,17 @@ Supplied brand palette. Background, text, accent and interaction roles remain to
 | Brand placement | Official Memory(One) logo assets |
 | Alternative body text, such as client cases and testimonials | FK Roman |
 
-Font weights, sizes, spacing, line heights and fallback stacks will be established during website design. Font files have not yet been imported or applied to the site.
+### Construction page typography
+
+| Element | Typeface and weight |
+| --- | --- |
+| “Under construction.” title | FK Grotesk Medium (500) |
+| Contact details | FK Grotesk Mono Medium (500) |
+| Introductory body text | FK Grotesk Regular (400) |
+| Footer | FK Grotesk SemiMono Medium (500) |
+| Button text | FK Grotesk Neue Thin (100) |
+
+These five original OTF files are self-hosted in `public/fonts/` and loaded with `@font-face`. This page-specific mapping takes precedence over the general roles above. Future typography scale and spacing decisions remain iterative. The construction page has no eyebrow text or “Work in progress” status indicator.
 
 ## Evolving the design
 

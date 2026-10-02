@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Favicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #091717;
+      }
+
+      .cls-2 {
+        fill: #fbfaf4;
+      }
+    </style>
+  </defs>
+  <rect id="Background" class="cls-2" x=".5" y=".5" width="31" height="31" rx="5" ry="5"/>
+  <g id="Logomark">
+    <rect id="Column" class="cls-1" x="13.46" y="7.09" width="5.07" height="17.81"/>
+    <path id="Bracket_R" class="cls-1" d="M24.1,24.9h-5.21c2.19-1.15,4.03-3.22,4.84-5.5.98-2.51.83-5.23-.35-7.65-.98-1.99-2.51-3.6-4.48-4.66l5.27.03c1.29,0,2.22,1.18,2.34,2.42v12.89c0,1.18-1.2,2.46-2.4,2.46Z"/>
+    <path id="Bracket_R2" class="cls-1" d="M7.9,24.9h5.21c-2.19-1.15-4.03-3.22-4.84-5.5-.98-2.51-.83-5.23.35-7.65.98-1.99,2.51-3.6,4.48-4.66l-5.27.03c-1.29,0-2.22,1.18-2.34,2.42v12.89c0,1.18,1.2,2.46,2.4,2.46Z"/>
+  </g>
+</svg>
