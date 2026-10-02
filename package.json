@@ -16,9 +16,12 @@
   },
   "dependencies": {
     "@astrojs/react": "^7.0.0",
+    "@hugeicons/core-free-icons": "^4.3.5",
+    "@hugeicons/react": "^1.1.10",
     "@sanity/client": "^8.7.0",
     "astro": "^7.3.5",
     "gsap": "^3.15.0",
+    "motion": "^14.0.0",
     "postprocessing": "^6.39.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
