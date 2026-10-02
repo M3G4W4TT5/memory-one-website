@@ -70,6 +70,10 @@ Remove the visible Memory(One) logo and all footer text. On each page load, show
 
 Place a 45px GitHub profile link to `https://github.com/M3G4W4TT5` at the viewport’s bottom-right edge with a 16px/safe-area inset, independent of the content width. Use the supplied orange backing, rotating backing hover and translucent blurred icon container. Remove the booking button and arrow. Add `book a meeting` (lowercase) as the third contact entry after the phone number, inheriting the email and phone’s font, size, colour and link styling. Keep the supplied Proton booking URL. All three contact hyperlinks turn `#FF7F00` on hover. Vertically centre the entire title, intro and contact block with equal space above and below, retaining the existing content width and left margin. Use equal minimum top/bottom padding on short screens and allow scrolling when the content exceeds the viewport.
 
+### Services wheel
+
+Integrate the local React Bits OptionWheel (JavaScript + CSS) as a React island, with the supplied ten service labels and Branding & Visual Identity selected initially. Use the right-side curve, infinite looping, scrolling, dragging, click selection and arrow-key controls. Use FK Grotesk Regular/Medium, resting `#a6a6a6` and active `#ffffff`; retain the supplied spacing, tilt, curve, blur, fade and smoothing. Fit labels to the available width up to 3rem, reducing the inset on narrow columns. Place it to the right of the construction content on wide screens and below on screens up to 900px. Keep the existing left margin, centre the combined layout vertically, and scale the title to allow two columns without overlap. Reduced motion snaps selection without easing; keyboard focus and the active option are exposed accessibly. No tick sound is enabled because the example sound asset was not supplied.
+
 ## Evolving the design
 
 ### Construction page hover effect
