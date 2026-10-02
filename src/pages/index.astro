@@ -8,7 +8,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="The new Memory(One) website is under construction. Get in touch or book a meeting with Alexander Watts." />
     <meta name="robots" content="noindex, follow" />
-    <meta name="theme-color" content="#f3f0e8" />
+    <meta name="theme-color" content="#012138" />
     <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
     <link rel="preload" href="/fonts/FKGrotesk-Medium.otf" as="font" type="font/otf" crossorigin />
     <title>Memory(One) — Under construction</title>
@@ -16,7 +16,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   <body>
     <header class="wrap">
       <a class="wordmark" href="/" aria-label="Memory One home">
-        <img src="/brand/memory-one-logo-on-light.webp" alt="Memory(One)" width="2001" height="601" fetchpriority="high" />
+        <img src="/brand/memory-one-logo-on-dark.webp" alt="Memory(One)" width="2001" height="601" fetchpriority="high" />
       </a>
     </header>
     <main id="main" class="wrap">
@@ -42,24 +42,24 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   @font-face { font-family: 'FK Grotesk SemiMono'; src: url('/fonts/FKGroteskSemiMono-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
   @font-face { font-family: 'FK Grotesk Neue'; src: url('/fonts/FKGroteskNeue-Thin.otf') format('opentype'); font-weight: 100; font-style: normal; font-display: swap; }
   :global(*) { box-sizing: border-box; }
-  :global(body) { margin: 0; min-height: 100svh; display: flex; flex-direction: column; background: #f3f0e8; color: #242722; font-family: 'FK Grotesk', Arial, sans-serif; font-weight: 400; font-synthesis: none; -webkit-font-smoothing: antialiased; }
+  :global(body) { margin: 0; min-height: 100svh; display: flex; flex-direction: column; background: #012138; color: #CFCFC5; font-family: 'FK Grotesk', Arial, sans-serif; font-weight: 400; font-synthesis: none; -webkit-font-smoothing: antialiased; }
   :global(a) { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .25em; }
-  :global(a:focus-visible) { outline: 2px solid #3d6041; outline-offset: 7px; }
+  :global(a:focus-visible) { outline: 2px solid #008580; outline-offset: 7px; }
   .wrap { width: min(100% - 4rem, 1240px); margin-inline: auto; }
-  header { display: flex; align-items: center; padding-block: 1.25rem; border-bottom: 1px solid #cccfc2; }
+  header { display: flex; align-items: center; padding-block: 1.25rem; border-bottom: 1px solid #008580; }
   .wordmark { display: block; width: 280px; max-width: 100%; }
   .wordmark img { display: block; width: 100%; height: auto; }
   main { flex: 1; padding-block: clamp(3rem, 8vh, 7rem); }
   h2 { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 500; font-family: 'FK Grotesk Mono', monospace; }
   h1 { font-size: clamp(2.65rem, 8.8vw, 8.25rem); line-height: .94; letter-spacing: -.055em; font-weight: 500; margin: 0 0 2rem; }
-  .period { color: #526b40; }
-  .intro { font-size: clamp(1rem, 1.8vw, 1.3rem); line-height: 1.65; color: #5d6257; margin: 0; }
+  .period { color: #CFCFC5; }
+  .intro { font-size: clamp(1rem, 1.8vw, 1.3rem); line-height: 1.65; color: #CFCFC5; margin: 0; }
   .contact { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 1.5rem 2rem; margin-top: clamp(2.5rem, 7vh, 5rem); }
   h2 { grid-column: 1 / -1; margin: 0; }
   .contact-links { display: flex; gap: 1rem 2.5rem; flex-wrap: wrap; font-family: 'FK Grotesk Mono', monospace; font-weight: 500; font-size: clamp(1rem, 1.6vw, 1.2rem); }
-  .booking { display: inline-flex; align-items: center; justify-content: space-between; gap: 3rem; padding: 1rem 1.4rem; background: #242722; color: #f3f0e8; text-decoration: none; font-family: 'FK Grotesk Neue', Arial, sans-serif; font-weight: 100; font-size: 1rem; transition: background .15s; }
-  .booking:hover { background: #3d6041; }
-  footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-top: 1px solid #cccfc2; padding-block: 1.4rem; color: #5d6257; font-family: 'FK Grotesk SemiMono', monospace; font-weight: 500; font-size: .75rem; }
+  .booking { display: inline-flex; align-items: center; justify-content: space-between; gap: 3rem; padding: 1rem 1.4rem; background: #008580; color: #CFCFC5; text-decoration: none; font-family: 'FK Grotesk Neue', Arial, sans-serif; font-weight: 100; font-size: 1rem; transition: background .15s; }
+  .booking:hover { text-decoration: underline; text-underline-offset: .25em; }
+  footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-top: 1px solid #008580; padding-block: 1.4rem; color: #CFCFC5; font-family: 'FK Grotesk SemiMono', monospace; font-weight: 500; font-size: .75rem; }
   @media (max-width: 600px) {
     .wrap { width: calc(100% - 2rem); }
     header { padding-block: 1.4rem; }
