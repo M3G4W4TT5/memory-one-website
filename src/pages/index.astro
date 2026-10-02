@@ -1,5 +1,6 @@
 ---
 import ConstructionThought from '../components/ConstructionThought';
+import Noise from '../components/Noise';
 const thoughtSteps = ['Searching our services', 'Drafting an answer', 'Web Design & UX', 'Web Development', 'Branding & Visual Identity', 'Software Development', 'Agentic AI', 'System Integration', 'AI Search Optimisation', 'SEO', 'Managed Operations', 'Consulting', 'Finish building website ...'];
 const spinnerDelays = [0.1,0.2,0.3,0.4,0.5,0.2,0.3,0.4,0.5,0.6,0.3,0.4,0.5,0.6,0.7,0.4,0.5,0.6,0.7,0.8,0.5,0.6,0.7,0.8,0.9];
 const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW4XrxufM9IWHskXnp580=';
@@ -28,6 +29,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   </head>
   <body>
     <div class="pixel-background" data-pixel-blast aria-hidden="true"></div>
+    <Noise client:load patternSize={290} patternScaleX={1} patternScaleY={1} patternRefreshInterval={2} patternAlpha={10} />
     <div class="page-loader" role="status" aria-label="Loading page">
       <ul class="loading-grid" aria-hidden="true">
         {spinnerDelays.map((delay, index) => <li style={`animation-delay: ${delay}s; z-index: ${24 - index}`}></li>)}

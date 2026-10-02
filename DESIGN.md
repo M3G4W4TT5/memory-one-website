@@ -74,6 +74,10 @@ Place a 45px GitHub profile link to `https://github.com/M3G4W4TT5` at the viewpo
 
 Replace OptionWheel with the supplied React Bits ThoughtLine component, bundled locally with Motion and Hugeicons. Place the 16px Thinking… header and service trace to the right of the main content on desktop, aligning its top with the title without shifting the title; centre it below the content on mobile. Keep the existing main copy and desktop contact row. Use FK Grotesk for the component and FK Grotesk Mono for its timer, with `#CFCFC5` text. Include the thirteen remaining steps (omit “Searching your notes”), revealing one step at a time, 1.6 seconds apart after the loading overlay clears. Mark each previous step complete as the next appears, then keep “Finish building website ...” active indefinitely: always working, no auto-settle and no completion callback. Keep the sparkle, live elapsed timer, breathing/shimmer and collapsible trace; earlier steps show check marks. Reduced motion disables breathing, shimmer, pulse and transition animations. Remove the wheel implementation entirely.
 
+### Noise overlay
+
+Add the local React Bits Noise component as a subtle, full-viewport grain overlay above every page layer, including the loading overlay. Use pattern size 290, X/Y scale 1, refresh every two frames and alpha 10 (out of 255). Generate a repeating 290px tile to honour the pattern settings without regenerating a full-screen pixel buffer each time. Keep it decorative and transparent to pointer input; retain the layout, links and sequential ThoughtLine. Render still grain for reduced motion and pause rendering while the tab is hidden.
+
 ## Evolving the design
 
 ### Construction page hover effect
