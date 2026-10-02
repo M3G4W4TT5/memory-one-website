@@ -20,7 +20,7 @@ Explore rendering the 3D logomark directly on the construction page with a chrom
 
 ## Colours
 
-Supplied brand palette. The construction page uses `#012138` for the background, `#CFCFC5` for all text, including button text, and `#FF7F00` for button fill and the dot after “construction”. The top and bottom dividers are removed. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
+Supplied brand palette. The construction page uses black (`#000000`) beneath the `#012138` PixelBlast background, `#CFCFC5` for all text, including button text, and `#FF7F00` for button fill and the dot after “construction”. The top and bottom dividers are removed. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
 
 | Colour | Hex |
 | --- | --- |
@@ -30,6 +30,7 @@ Supplied brand palette. The construction page uses `#012138` for the background,
 | Teal | `#008580` |
 | Red-orange | `#FE3E00` |
 | Orange | `#FF7F00` |
+| Green | `#54b984` |
 
 ## Typography
 
@@ -58,6 +59,10 @@ Supplied brand palette. The construction page uses `#012138` for the background,
 | Button text | FK Grotesk Neue Light (300) |
 
 These five original OTF files are self-hosted in `public/fonts/` and loaded with `@font-face`. This page-specific mapping takes precedence over the general roles above. Future typography scale and spacing decisions remain iterative. The construction page has no eyebrow text or “Work in progress” status indicator.
+
+### Construction page background
+
+Use a full-viewport, fixed PixelBlast layer on black with the supplied settings: circle, pixel size 5, colour `#012138`, pattern scale 4, density 1.2, jitter 2, ripples enabled (speed 0.4, thickness 0.12, intensity 1.5), liquid enabled (strength 0.12, radius 1.2, wobble speed 5), animation speed 0.7, edge fade 0.07 and transparency. Adapt the React Bits renderer to a local script, bundling Three.js and postprocessing without a CDN or React hydration. Keep the light logo, typography, text and hover effect. The layer must not intercept links or scrolling. Pause when hidden, render a still pattern for reduced motion and retain a black fallback without WebGL.
 
 ## Evolving the design
 
