@@ -5,7 +5,7 @@
 
 This brief collects the ideas and decisions from the conversation so far, including Alexander's follow-up answers on 30 September 2026. It is a design and content handoff, not a record that the new site has been built. Explicitly supplied identity details, biography, publication permissions, and project decisions are recorded below; proposals and deferred decisions remain marked as such.
 
-**Current scope:** Update this brief only. Website implementation has not been authorized to begin. Make these changes on `main`, without creating another branch; Alexander will commit and push.
+**Current scope (updated 2 October 2026):** Implementation is now authorised. Replace the old site with a public construction page showing `contact@memoryone.eu`, `+45 93951496`, and the supplied Proton booking link. Use `test` for the private preview, restricted to `dev@memoryone.eu`, and `main` for production. Retire the old website Workers and GitHub deployment connection. Keep GitHub Actions and test workflows out of the new repository. Focus on the main page; the digital card is deferred. See `docs/memory-one-deployment.md` for the deployment setup and remaining access blockers.
 
 **Working environment:** Primarily Codex Cloud, using the `memory-one-website` environment and the `M3G4W4TT5/memory-one-website` repository. Keep durable project context in this repository so future tasks and other devices can access it.
 
@@ -246,7 +246,7 @@ The identity, biography, public links, card fields, creative publication rights,
 - **Cross-published articles:** Record the original/canonical source per article.
 - **Launch details:** Inspect existing VPS/Cloudflare routing and old Workers before migration, and settle applicable privacy copy and final launch approval. Analytics are optional for later; the deployment and GitHub rollback approach are settled.
 
-These open items do not generally prevent future concept work, but Alexander has explicitly asked not to begin implementation yet.
+These open items do not prevent implementation authorised on 2 October 2026. The earlier pause on implementation has been superseded.
 
 ## 13. Implementation sequence for the new project
 
