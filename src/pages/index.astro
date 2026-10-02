@@ -65,6 +65,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
 <style>
   @font-face { font-family: 'FK Grotesk'; src: url('/fonts/FKGrotesk-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
   @font-face { font-family: 'FK Grotesk'; src: url('/fonts/FKGrotesk-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'FK Grotesk Neue'; src: url('/fonts/FKGroteskNeue-Thin.otf') format('opentype'); font-weight: 100; font-style: normal; font-display: swap; }
   @font-face { font-family: 'FK Grotesk Mono'; src: url('/fonts/FKGroteskMono-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
   :global(*) { box-sizing: border-box; }
   :global(body) { margin: 0; min-height: 100svh; display: flex; flex-direction: column; background: #000000; color: #CFCFC5; font-family: 'FK Grotesk', Arial, sans-serif; font-weight: 400; font-synthesis: none; -webkit-font-smoothing: antialiased; isolation: isolate; }
@@ -73,8 +74,8 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   :global(a) { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .25em; }
   :global(a:focus-visible) { outline: 2px solid #008580; outline-offset: 7px; }
   .wrap { width: min(100% - 4rem, 1240px); margin-inline: auto; }
-  main { margin-block: auto; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 3rem; }
-  :global(.service-wheel) { height: clamp(380px, 65svh, 640px); min-width: 0; }
+  main { margin-block: auto; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 3rem; min-height: clamp(380px, 65svh, 640px); }
+  :global(.service-wheel) { position: fixed; top: 0; right: 0; bottom: 0; z-index: 1; width: calc((min(100vw - 4rem, 1240px) - 3rem) / 2.15); height: 100dvh; min-width: 0; }
   h2 { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 500; font-family: 'FK Grotesk Mono', monospace; }
   h1 { font-size: clamp(2.65rem, 6.2vw, 5.6rem); line-height: .94; letter-spacing: -.055em; font-weight: 500; margin: 0 0 2rem; }
   .period { color: #FF7F00; }
@@ -89,7 +90,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   .contact-links a:hover { color: #FF7F00; }
   .page-view { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-block: 4rem; }
   :global(.is-loading) .page-view, :global(.is-loading) .github-button { pointer-events: none; }
-  .page-loader { display: none; position: fixed; inset: 0; z-index: 10; place-items: center; background: #012138; opacity: 1; transition: opacity 1s ease; }
+  .page-loader { display: none; position: fixed; inset: 0; z-index: 10; place-items: center; background: #000000; opacity: 1; transition: opacity 1s ease; }
   :global(.is-loading) .page-loader, :global(.is-revealing) .page-loader { display: grid; }
   :global(.is-revealing) .page-loader { opacity: 0; pointer-events: none; }
   .loading-grid { display: grid; grid-template-columns: repeat(5, 40px); list-style: none; margin: 0; padding: 0; animation: loader-rotate 16s linear infinite; }
@@ -102,8 +103,9 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   .github-button:hover .github-bg { transform: rotate(35deg); transform-origin: bottom; }
   .github-button:hover .svg-container { background: rgb(156 156 156 / .466); backdrop-filter: blur(4px); }
   @media (max-width: 900px) {
-    main { grid-template-columns: 1fr; gap: 2rem; }
-    :global(.service-wheel) { height: 340px; }
+    main { grid-template-columns: 1fr; gap: 0; min-height: 0; margin-block: 0; }
+    .page-view { justify-content: flex-start; }
+    :global(.service-wheel) { display: none; }
   }
   @media (max-width: 600px) {
     .wrap { width: calc(100% - 2rem); }
