@@ -13,7 +13,7 @@ export async function revealWhenReady(background: Promise<unknown>) {
   let timeout: ReturnType<typeof setTimeout>;
   await Promise.all([minimum, Promise.race([assets, new Promise(resolve => { timeout = setTimeout(resolve, 8000); })])]);
   clearTimeout(timeout!);
-  // Allow the renderer's first frame to paint before reducing the blur.
+  // Allow the renderer's first frame to paint before fading the loading overlay.
   requestAnimationFrame(() => requestAnimationFrame(() => {
     root.classList.add('is-revealing');
     root.classList.remove('is-loading');

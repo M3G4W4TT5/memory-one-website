@@ -20,7 +20,7 @@ Explore rendering the 3D logomark directly on the construction page with a chrom
 
 ## Colours
 
-Supplied brand palette. The construction page uses black (`#000000`) beneath the `#012138` PixelBlast background, `#CFCFC5` for all text, including button text, and `#FF7F00` for button fill and the dot after “construction”. The top and bottom dividers are removed. The page has no visible wordmark or footer text. Roles for the remaining colours are still open.
+Supplied brand palette. The construction page uses black (`#000000`) beneath the `#012138` PixelBlast background, `#CFCFC5` for all text, including the booking link, and `#FF7F00` for the loading spinner, GitHub backing and the dot after “construction”. The top and bottom dividers are removed. The page has no visible wordmark or footer text. Roles for the remaining colours are still open.
 
 | Colour | Hex |
 | --- | --- |
@@ -56,7 +56,7 @@ Supplied brand palette. The construction page uses black (`#000000`) beneath the
 | Contact details | FK Grotesk Mono Medium (500) |
 | Introductory body text | FK Grotesk Regular (400) |
 | Footer | Removed; no footer text |
-| Button text | FK Grotesk Neue Regular (400) |
+| Booking link | FK Grotesk Mono Medium (500), matching the email and phone |
 
 The original OTF files are self-hosted in `public/fonts/` and loaded with `@font-face`. This page-specific mapping takes precedence over the general roles above. Future typography scale and spacing decisions remain iterative. The construction page has no eyebrow text or “Work in progress” status indicator.
 
@@ -66,9 +66,9 @@ Use a full-viewport, fixed PixelBlast layer on black with the supplied settings:
 
 ### Loading reveal and buttons
 
-Remove the visible Memory(One) logo and all footer text. On each page load, show the supplied orange 5×5 glowing tile spinner for at least two seconds over the blurred page and PixelBlast layer. Fade the spinner away while reducing the blur over one second, waiting for fonts and the background module with a bounded fallback. Without JavaScript, show the page directly. Reduced-motion mode keeps the spinner still and reveals without animation after the same minimum delay.
+Remove the visible Memory(One) logo and all footer text. On each page load, show the supplied orange 5×5 glowing tile spinner for at least two seconds over a solid `#012138` background. Fade the spinner and its solid background away together over one second, waiting for fonts and the background module with a bounded fallback. Without JavaScript, show the page directly. Reduced-motion mode keeps the spinner still and reveals without animation after the same minimum delay.
 
-Place a 45px GitHub profile link to `https://github.com/M3G4W4TT5` at the viewport’s bottom-right edge with a 16px/safe-area inset, independent of the content width. Use the supplied orange backing, rotating backing hover and translucent blurred icon container. Preserve the booking button’s rectangular shape, wording and existing arrow; use FK Grotesk Neue Regular, increase arrow stroke to 2.75, and transition to a dark `#181717` fill with `#008580` text and arrow on hover. Do not add icons to the booking button.
+Place a 45px GitHub profile link to `https://github.com/M3G4W4TT5` at the viewport’s bottom-right edge with a 16px/safe-area inset, independent of the content width. Use the supplied orange backing, rotating backing hover and translucent blurred icon container. Remove the booking button and arrow. Add `book a meeting` (lowercase) as the third contact entry after the phone number, inheriting the email and phone’s font, size, colour and link styling. Keep the supplied Proton booking URL. All three contact hyperlinks turn `#FF7F00` on hover. Vertically centre the entire title, intro and contact block with equal space above and below, retaining the existing content width and left margin. Use equal minimum top/bottom padding on short screens and allow scrolling when the content exceeds the viewport.
 
 ## Evolving the design
 
