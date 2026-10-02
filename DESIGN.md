@@ -4,6 +4,10 @@ Living reference for the website’s visual style. Expand and revise this file a
 
 Updated: 2 October 2026.
 
+## Firm design rules
+
+**NEVER use eyebrow text anywhere on the website.** Do not place a small label above a title or heading, including labels such as “About”, “01 / About”, or “A new chapter”. This applies to every page and component, without exceptions.
+
 ## Logo assets
 
 [Memory(One) logos and 3D logomark GLB](https://drive.google.com/drive/folders/1McsZKn6_XSbPqdDvI8zM_DXSUOSwwh-J)
