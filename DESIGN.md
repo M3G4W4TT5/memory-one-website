@@ -12,7 +12,7 @@ Updated: 2 October 2026.
 
 [Memory(One) logos and 3D logomark GLB](https://drive.google.com/drive/folders/1McsZKn6_XSbPqdDvI8zM_DXSUOSwwh-J)
 
-Use the official Memory(One) logo assets for brand placement. The folder above is the supplied source for both the logo collection and the 3D logomark. The construction page uses the official light one-colour logo for a dark background and the supplied SVG favicon. Both logo variants are saved in `public/brand/`: `memory-one-logo-on-light.webp` (dark artwork) and `memory-one-logo-on-dark.webp` (light artwork). Use the matching original asset for each background rather than recreating the wordmark as text.
+Use the official Memory(One) logo assets for brand placement. The folder above is the supplied source for both the logo collection and the 3D logomark. The construction page uses the official light one-colour logo for a dark background and the supplied SVG favicon. Both logo variants are saved in `public/brand/`: `memory-one-logo-on-light.webp` (dark artwork) and `memory-one-logo-on-dark.webp` (light artwork). Use the matching original asset for each background rather than recreating the wordmark as text. Clip the image’s transparent margins in CSS so the visible top-left logo aligns with the left edge of the heading and body text.
 
 ### Construction page direction
 
@@ -20,7 +20,7 @@ Explore rendering the 3D logomark directly on the construction page with a chrom
 
 ## Colours
 
-Supplied brand palette. The construction page uses `#012138` for the background, `#CFCFC5` for text (including button text), `#FF7F00` for the dot after “construction”, and `#008580` for buttons and dividers. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
+Supplied brand palette. The construction page uses `#012138` for the background, `#CFCFC5` for page text and button fill, `#000000` for button text, and `#FF7F00` for the dot after “construction”. The top and bottom dividers are removed. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
 
 | Colour | Hex |
 | --- | --- |
