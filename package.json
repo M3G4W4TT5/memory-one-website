@@ -18,6 +18,7 @@
     "@astrojs/react": "^7.0.0",
     "@sanity/client": "^8.7.0",
     "astro": "^7.3.5",
+    "gsap": "^3.15.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

@@ -61,6 +61,10 @@ These five original OTF files are self-hosted in `public/fonts/` and loaded with
 
 ## Evolving the design
 
+### Construction page hover effect
+
+The existing title and introductory body copy use a line-by-line hover scramble, radiating from the centre outward. Keep the current FK fonts and `#CFCFC5` resting text; the final dot returns to `#FF7F00`. Temporary characters, outlines and small width annotations use the supplied effect palette: `#85AF00`, `#FFCC00`, `#FB9CFD`, `#A19BFF`, `#FF4C00`. Preserve the wording and layout. Restore every character after the animation, resplit on responsive line changes, retain readable screen-reader text and disable the effect when reduced motion is requested. Contact details, buttons, logo and footer do not scramble.
+
 Record agreed choices here as they emerge: colour roles, typography scale, layout and spacing, components, 3D materials and lighting, motion and responsive behaviour. Keep experiments identified as proposals until a direction is selected.
 
 For positioning, content and visual inspiration, see [project-brief.md](project-brief.md). For preview and production workflow, see [docs/memory-one-deployment.md](docs/memory-one-deployment.md).
