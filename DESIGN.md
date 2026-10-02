@@ -12,7 +12,7 @@ Updated: 2 October 2026.
 
 [Memory(One) logos and 3D logomark GLB](https://drive.google.com/drive/folders/1McsZKn6_XSbPqdDvI8zM_DXSUOSwwh-J)
 
-Use the official Memory(One) logo assets for brand placement. The folder above is the supplied source for both the logo collection and the 3D logomark. The construction page uses the official light one-colour logo for a dark background and the supplied SVG favicon. Both logo variants are saved in `public/brand/`: `memory-one-logo-on-light.webp` (dark artwork) and `memory-one-logo-on-dark.webp` (light artwork). Use the matching original asset for each background rather than recreating the wordmark as text. Clip the image’s transparent margins in CSS so the visible top-left logo aligns with the left edge of the heading and body text.
+Use the official Memory(One) logo assets for brand placement. The folder above is the supplied source for both the logo collection and the 3D logomark. The construction page retains the supplied SVG favicon; the visible logo has been removed. Both logo variants are saved in `public/brand/`: `memory-one-logo-on-light.webp` (dark artwork) and `memory-one-logo-on-dark.webp` (light artwork). Use the matching original asset for each background rather than recreating the wordmark as text. For future visible logo placements, clip transparent margins in CSS so the artwork aligns with adjacent content.
 
 ### Construction page direction
 
@@ -20,7 +20,7 @@ Explore rendering the 3D logomark directly on the construction page with a chrom
 
 ## Colours
 
-Supplied brand palette. The construction page uses black (`#000000`) beneath the `#012138` PixelBlast background, `#CFCFC5` for all text, including button text, and `#FF7F00` for button fill and the dot after “construction”. The top and bottom dividers are removed. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
+Supplied brand palette. The construction page uses black (`#000000`) beneath the `#012138` PixelBlast background, `#CFCFC5` for all text, including button text, and `#FF7F00` for button fill and the dot after “construction”. The top and bottom dividers are removed. The page has no visible wordmark or footer text. Roles for the remaining colours are still open.
 
 | Colour | Hex |
 | --- | --- |
@@ -55,14 +55,20 @@ Supplied brand palette. The construction page uses black (`#000000`) beneath the
 | “Under construction.” title | FK Grotesk Medium (500) |
 | Contact details | FK Grotesk Mono Medium (500) |
 | Introductory body text | FK Grotesk Regular (400) |
-| Footer | FK Grotesk SemiMono Medium (500) |
-| Button text | FK Grotesk Neue Light (300) |
+| Footer | Removed; no footer text |
+| Button text | FK Grotesk Neue Regular (400) |
 
-These five original OTF files are self-hosted in `public/fonts/` and loaded with `@font-face`. This page-specific mapping takes precedence over the general roles above. Future typography scale and spacing decisions remain iterative. The construction page has no eyebrow text or “Work in progress” status indicator.
+The original OTF files are self-hosted in `public/fonts/` and loaded with `@font-face`. This page-specific mapping takes precedence over the general roles above. Future typography scale and spacing decisions remain iterative. The construction page has no eyebrow text or “Work in progress” status indicator.
 
 ### Construction page background
 
-Use a full-viewport, fixed PixelBlast layer on black with the supplied settings: circle, pixel size 5, colour `#012138`, pattern scale 4, density 1.2, jitter 2, ripples enabled (speed 0.4, thickness 0.12, intensity 1.5), liquid enabled (strength 0.12, radius 1.2, wobble speed 5), animation speed 0.7, edge fade 0.07 and transparency. Adapt the React Bits renderer to a local script, bundling Three.js and postprocessing without a CDN or React hydration. Keep the light logo, typography, text and hover effect. The layer must not intercept links or scrolling. Pause when hidden, render a still pattern for reduced motion and retain a black fallback without WebGL.
+Use a full-viewport, fixed PixelBlast layer on black with the supplied settings: circle, pixel size 5, colour `#012138`, pattern scale 4, density 1.2, jitter 2, ripples enabled (speed 0.4, thickness 0.12, intensity 1.5), liquid enabled (strength 0.12, radius 1.2, wobble speed 5), animation speed 0.7, edge fade 0.07 and transparency. Adapt the React Bits renderer to a local script, bundling Three.js and postprocessing without a CDN or React hydration. Keep the typography, main copy and text hover effect. The layer must not intercept links or scrolling. Pause when hidden, render a still pattern for reduced motion and retain a black fallback without WebGL.
+
+### Loading reveal and buttons
+
+Remove the visible Memory(One) logo and all footer text. On each page load, show the supplied orange 5×5 glowing tile spinner for at least two seconds over the blurred page and PixelBlast layer. Fade the spinner away while reducing the blur over one second, waiting for fonts and the background module with a bounded fallback. Without JavaScript, show the page directly. Reduced-motion mode keeps the spinner still and reveals without animation after the same minimum delay.
+
+Place a 45px GitHub profile link to `https://github.com/M3G4W4TT5` at the viewport’s bottom-right edge with a 16px/safe-area inset, independent of the content width. Use the supplied orange backing, rotating backing hover and translucent blurred icon container. Preserve the booking button’s rectangular shape, wording and existing arrow; use FK Grotesk Neue Regular, increase arrow stroke to 2.75, and transition to a dark `#181717` fill with `#008580` text and arrow on hover. Do not add icons to the booking button.
 
 ## Evolving the design
 
