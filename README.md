@@ -4,6 +4,8 @@ The public site currently shows a construction page. Work on `test` and review a
 
 The reference documentation below describes the starter this project was built from; its demonstration homepage has been replaced.
 
+Brand colours, typography, logo sources and evolving visual decisions are recorded in [DESIGN.md](DESIGN.md).
+
 ## Astro + Sanity + Cloudflare Pages starter
 
 A public template for building small, content-focused websites. It gives you a working local demo and a starting point for a site with editable content and a contact form.

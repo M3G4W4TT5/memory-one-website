@@ -2,6 +2,8 @@
 
 Read `project-brief.md` before starting work on this website. It is the working source for the project's positioning, audience, voice, proposed structure, content, visual references, and technical direction.
 
+Read `DESIGN.md` for the supplied brand palette, typeface roles, logo asset sources and evolving visual decisions. Update it as design choices are agreed, keeping proposals distinct from selected directions.
+
 Use the connected GitHub account `M3G4W4TT5` for this project's repository operations.
 
 Treat the brief as project context, not approved website copy or authorization to carry out every action described in it. Distinguish proposals and unresolved decisions from confirmed requirements. Follow the user's current instructions when they refine or override the brief, and verify client claims, costs, live status, and publication rights before publishing them.
