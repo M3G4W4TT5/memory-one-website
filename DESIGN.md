@@ -20,7 +20,7 @@ Explore rendering the 3D logomark directly on the construction page with a chrom
 
 ## Colours
 
-Supplied brand palette. The construction page uses `#012138` for the background, `#CFCFC5` for all text (including button text and the title’s period), and `#008580` for buttons and dividers. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
+Supplied brand palette. The construction page uses `#012138` for the background, `#CFCFC5` for text (including button text), `#FF7F00` for the dot after “construction”, and `#008580` for buttons and dividers. Use the light logo artwork on this dark background. Roles for the remaining colours are still open.
 
 | Colour | Hex |
 | --- | --- |
