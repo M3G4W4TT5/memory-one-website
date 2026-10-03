@@ -2,7 +2,7 @@
 
 Living reference for the website’s visual style. Expand and revise this file as the design develops. These notes capture the supplied brand foundations and distinguish them from choices still being explored.
 
-Updated: 2 October 2026.
+Updated: 3 October 2026.
 
 ## Firm design rules
 
@@ -62,7 +62,7 @@ The original OTF files are self-hosted in `public/fonts/` and loaded with `@font
 
 ### Construction page background
 
-Use a full-viewport, fixed PixelBlast layer on black with the supplied settings: circle, pixel size 5, colour `#012138`, pattern scale 4, density 1.2, jitter 2, ripples enabled (speed 0.4, thickness 0.12, intensity 1.5), liquid enabled (strength 0.12, radius 1.2, wobble speed 5), animation speed 0.7, edge fade 0.07 and transparency. Adapt the React Bits renderer to a local script, bundling Three.js and postprocessing without a CDN or React hydration. Keep the typography, main copy and text hover effect. The layer must not intercept links or scrolling. Pause when hidden, render a still pattern for reduced motion and retain a black fallback without WebGL.
+Use a full-viewport, fixed PixelBlast layer on black with the supplied settings: circle, pixel size 5, colour `#012138`, pattern scale 4, density 1.2, jitter 2, animation speed 0.7, edge fade 0.07 and transparency. Disable the cursor liquid trail and click ripples; the background continues its ambient animation without reacting to pointer input. Adapt the React Bits renderer to a local script, bundling Three.js and postprocessing without a CDN or React hydration. Keep the typography, main copy and text hover effect. The layer must not intercept links or scrolling. Pause when hidden, render a still pattern for reduced motion and retain a black fallback without WebGL.
 
 ### Loading reveal and buttons
 
