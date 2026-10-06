@@ -16,7 +16,6 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
     <link rel="preload" href="/fonts/FKGrotesk-Medium.otf" as="font" type="font/otf" crossorigin />
     <script is:inline>
       document.documentElement.classList.add('is-loading');
-      document.documentElement.dataset.loadStarted = String(performance.now());
       // Fail open if the page scripts cannot load.
       window.setTimeout(() => {
         document.documentElement.classList.remove('is-loading', 'is-revealing');
@@ -30,7 +29,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
     <div class="pixel-background" data-pixel-blast aria-hidden="true"></div>
     <Noise client:load patternSize={290} patternScaleX={1} patternScaleY={1} patternRefreshInterval={2} patternAlpha={10} />
     <div class="page-loader" role="status" aria-label="Loading page">
-      <video class="loading-logo" width="1200" height="640" muted loop playsinline preload="auto" poster="/brand/memory-one-loading-poster.webp" aria-hidden="true">
+      <video class="loading-logo" width="1200" height="640" muted playsinline preload="auto" poster="/brand/memory-one-loading-poster.webp" aria-hidden="true">
         <source src="/brand/memory-one-loading.webm" type="video/webm" />
       </video>
     </div>
