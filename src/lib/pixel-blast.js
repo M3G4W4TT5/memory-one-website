@@ -323,10 +323,10 @@ void main(){
 
 const MAX_CLICKS = 10;
 
-// Supplied visual settings with pointer effects disabled; bundled locally.
+// Supplied settings; bundled locally without React hydration or CDN scripts.
 const config = { variant: 'circle', pixelSize: 5, color: '#012138', patternScale: 4,
-  patternDensity: 1.2, pixelSizeJitter: 2, enableRipples: false, rippleSpeed: 0.4,
-  rippleThickness: 0.12, rippleIntensityScale: 1.5, liquid: false,
+  patternDensity: 1.2, pixelSizeJitter: 2, enableRipples: true, rippleSpeed: 0.4,
+  rippleThickness: 0.12, rippleIntensityScale: 1.5, liquid: true,
   liquidStrength: 0.12, liquidRadius: 1.2, liquidWobbleSpeed: 5,
   speed: 0.7, edgeFade: 0.07, transparent: true };
 
@@ -346,7 +346,7 @@ function initialisePixelBlast(container) {
     uShapeType: { value: SHAPE_MAP[config.variant] },
     uPixelSize: { value: config.pixelSize * renderer.getPixelRatio() },
     uScale: { value: config.patternScale }, uDensity: { value: config.patternDensity },
-    uPixelJitter: { value: config.pixelSizeJitter }, uEnableRipples: { value: Number(config.enableRipples) },
+    uPixelJitter: { value: config.pixelSizeJitter }, uEnableRipples: { value: 1 },
     uRippleSpeed: { value: config.rippleSpeed }, uRippleThickness: { value: config.rippleThickness },
     uRippleIntensity: { value: config.rippleIntensityScale }, uEdgeFade: { value: config.edgeFade },
   };
@@ -358,14 +358,14 @@ function initialisePixelBlast(container) {
   });
   const geometry = new THREE.PlaneGeometry(2, 2);
   scene.add(new THREE.Mesh(geometry, material));
-  const touch = config.liquid ? createTouchTexture() : null;
-  if (touch) touch.radiusScale = config.liquidRadius;
-  const liquidEffect = touch ? createLiquidEffect(touch.texture, {
+  const touch = createTouchTexture();
+  touch.radiusScale = config.liquidRadius;
+  const liquidEffect = createLiquidEffect(touch.texture, {
     strength: config.liquidStrength, freq: config.liquidWobbleSpeed,
-  }) : null;
+  });
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
-  if (liquidEffect) composer.addPass(new EffectPass(camera, liquidEffect));
+  composer.addPass(new EffectPass(camera, liquidEffect));
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let frame = 0, lastTime = 0, clickIndex = 0, elapsed = 0;
   let disposed = false;
@@ -376,8 +376,8 @@ function initialisePixelBlast(container) {
     if (lastTime && !motion.matches) elapsed += Math.min((timestamp - lastTime) / 1000, 0.1) * config.speed;
     lastTime = timestamp;
     uniforms.uTime.value = timeOffset + elapsed;
-    if (liquidEffect) liquidEffect.uniforms.get('uTime').value = uniforms.uTime.value;
-    if (!motion.matches) touch?.update();
+    liquidEffect.uniforms.get('uTime').value = uniforms.uTime.value;
+    if (!motion.matches) touch.update();
     composer.render();
     if (!motion.matches) frame = requestAnimationFrame(render);
   }
@@ -398,7 +398,7 @@ function initialisePixelBlast(container) {
     return { x: (event.clientX - rect.left) / rect.width, y: 1 - (event.clientY - rect.top) / rect.height };
   }
   function pointerMove(event) {
-    if (!motion.matches) touch?.addTouch(pointerPosition(event));
+    if (!motion.matches) touch.addTouch(pointerPosition(event));
   }
   function pointerDown(event) {
     if (motion.matches) return;
@@ -409,22 +409,18 @@ function initialisePixelBlast(container) {
   }
   const observer = new ResizeObserver(resize);
   observer.observe(container);
-  // Observe input without intercepting links, text hover or scrolling.
-  if (config.liquid) window.addEventListener('pointermove', pointerMove, { passive: true });
-  if (config.enableRipples) window.addEventListener('pointerdown', pointerDown, { passive: true });
+  // Keep the original rendering pipeline, but do not register pointer input.
   document.addEventListener('visibilitychange', resume);
   motion.addEventListener('change', resume);
   function dispose() {
     if (disposed) return;
     disposed = true;
     cancelAnimationFrame(frame); observer.disconnect();
-    window.removeEventListener('pointermove', pointerMove);
-    window.removeEventListener('pointerdown', pointerDown);
     document.removeEventListener('visibilitychange', resume);
     motion.removeEventListener('change', resume);
     window.removeEventListener('pagehide', pageHide);
     renderer.domElement.removeEventListener('webglcontextlost', contextLost);
-    geometry.dispose(); material.dispose(); composer.dispose(); touch?.texture.dispose();
+    geometry.dispose(); material.dispose(); composer.dispose(); touch.texture.dispose();
     renderer.dispose(); renderer.domElement.remove();
   }
   function pageHide(event) { if (!event.persisted) dispose(); }
