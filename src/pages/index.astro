@@ -33,9 +33,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
     </button>
     <Noise client:load patternSize={290} patternScaleX={1} patternScaleY={1} patternRefreshInterval={2} patternAlpha={10} />
     <div class="page-loader" role="status" aria-label="Loading page">
-      <video class="loading-logo" width="1200" height="640" muted playsinline preload="auto" poster="/brand/memory-one-loading-poster.webp" aria-hidden="true">
-        <source src="/brand/memory-one-loading.webm" type="video/webm" />
-      </video>
+      <img class="loading-mark-fallback" src="/brand/memory-one-mark.svg" alt="" aria-hidden="true" />
     </div>
     <div class="page-view">
     <main id="main" class="wrap">
@@ -66,10 +64,10 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
 <script>
   import '../lib/text-scramble';
   import { revealWhenReady } from '../lib/page-reveal';
-  revealWhenReady(Promise.all([
+  revealWhenReady(
     import('../lib/pixel-blast'),
     import('../lib/logo-mark').then(module => module.initLogoMark()),
-  ]));
+  );
 </script>
 
 <style>
@@ -101,10 +99,11 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   .contact-links a:hover { color: #FF7F00; }
   .page-view { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-block: 4rem; }
   :global(.is-loading) .page-view, :global(.is-loading) .github-button { pointer-events: none; }
-  .page-loader { display: none; position: fixed; inset: 0; z-index: 10; place-items: center; background: #000000; opacity: 1; transition: opacity 1s ease; }
+  .page-loader { display: none; position: fixed; inset: 0; z-index: 10; place-items: center; background: #000000; opacity: 1; transition: opacity .8s ease; }
   :global(.is-loading) .page-loader, :global(.is-revealing) .page-loader { display: grid; }
   :global(.is-revealing) .page-loader { opacity: 0; pointer-events: none; }
-  .loading-logo { display: block; width: min(45vw, 720px); height: auto; max-height: 50svh; object-fit: contain; }
+  .loading-mark-fallback { width: min(176px, 33.6vw, 36svh); height: auto; }
+  :global([data-logo-ready]) .loading-mark-fallback { visibility: hidden; }
   .logo-mark { position: fixed; left: max(16px, env(safe-area-inset-left)); top: max(16px, env(safe-area-inset-top)); z-index: 3; width: 45px; height: 45px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #FF7F00; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
   .logo-mark:focus-visible { outline: 2px solid #FF7F00; outline-offset: 5px; border-radius: 7px; }
   .logo-mark:disabled { cursor: default; pointer-events: none; }
@@ -113,6 +112,7 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   .logo-mark[data-renderer="webgl"] .logo-mark-canvas { display: block; }
   .logo-mark[data-renderer="webgl"] .logo-mark-fallback { visibility: hidden; }
   :global(.is-loading) .logo-mark, :global(.is-revealing) .logo-mark { pointer-events: none; }
+  :global(.is-loading[data-logo-ready]) .logo-mark, :global(.is-revealing[data-logo-ready]) .logo-mark { z-index: 11; }
   .github-button { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 2; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 7px; isolation: isolate; background: transparent; color: #CFCFC5; }
   .svg-container { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid rgb(156 156 156 / .466); border-radius: 10px; background: transparent; backdrop-filter: blur(0); transition: background-color .3s, backdrop-filter .3s; }
   .github-bg { position: absolute; inset: 0; z-index: -1; border-radius: 10px; background: #FF7F00; pointer-events: none; transition: transform .3s; }
@@ -124,7 +124,6 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
     .page-view { justify-content: flex-start; }
   }
   @media (max-width: 600px) {
-    .loading-logo { width: 82vw; }
     .wrap { width: calc(100% - 2rem); }
     .contact { grid-template-columns: 1fr; }
     .contact-links { flex-direction: column; gap: 1rem; }

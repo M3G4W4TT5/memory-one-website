@@ -3,8 +3,6 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { gsap } from 'gsap';
 
-// Bounds of the orange mark in the supplied 1200 × 640 loading clip.
-const VIDEO_MARK = { x: 600, y: 168, width: 346, height: 250 };
 const TAU = Math.PI * 2;
 const mix = (a, b, t) => a + (b - a) * t;
 const curve = (a, b, c, d, t) => (1 - t) ** 3 * a + 3 * (1 - t) ** 2 * t * b + 3 * (1 - t) * t ** 2 * c + t ** 3 * d;
@@ -94,6 +92,8 @@ export async function initLogoMark() {
   let flight;
   let spin;
   let shine;
+  let intro;
+  let introFinished;
   let frame = 0;
   let disposed = false;
   let origin;
@@ -111,18 +111,8 @@ export async function initLogoMark() {
     const styles = getComputedStyle(button);
     return { x: parseFloat(styles.left) + 22.5, y: parseFloat(styles.top) + 22.5, size: 45 };
   };
-  const measureVideo = () => {
-    const video = document.querySelector('.loading-logo');
-    if (!video) return corner();
-    const rect = video.getBoundingClientRect();
-    // object-fit: contain can add letterboxing on short/landscape screens.
-    const scale = Math.min(rect.width / 1200, rect.height / 640);
-    return {
-      x: rect.x + (rect.width - scale * 1200) / 2 + VIDEO_MARK.x * scale,
-      y: rect.y + (rect.height - scale * 640) / 2 + VIDEO_MARK.y * scale,
-      size: VIDEO_MARK.width * scale / .8,
-    };
-  };
+  const measureIntro = () => ({ x: innerWidth / 2, y: innerHeight / 2,
+    size: Math.min(220, innerWidth * .42, innerHeight * .45) });
   const place = (x, y, diameter) => {
     const target = corner();
     button.style.transform = `translate3d(${x - target.x}px, ${y - target.y}px, 0) scale(${diameter / 45})`;
@@ -142,11 +132,9 @@ export async function initLogoMark() {
     paint();
   };
   const align = () => {
-    origin = measureVideo();
+    origin = measureIntro();
     place(origin.x, origin.y, origin.size);
-    coin.rotation.set(0, 0, 0);
-    // Match the video projection, then return to the model's native proportions.
-    coin.scale.y = (VIDEO_MARK.height / VIDEO_MARK.width) * (size.x / size.y);
+    coin.scale.set(1, 1, 1);
     glow(1);
     paint();
   };
@@ -162,7 +150,6 @@ export async function initLogoMark() {
     coin.rotation.set(Math.sin(Math.PI * p) * .72 + Math.sin(p * Math.PI * 4) * wobble * .16,
       -Math.sin(Math.PI * p) * 1.3 + Math.sin(p * Math.PI * 3) * wobble * .22,
       Math.sin(p * Math.PI * 2) * wobble * .18);
-    coin.scale.y = mix((VIDEO_MARK.height / VIDEO_MARK.width) * (size.x / size.y), 1, p);
     glow((1 - p) ** 2);
     paint();
   };
@@ -175,8 +162,37 @@ export async function initLogoMark() {
   };
   const syncReveal = () => {
     const loading = root.classList.contains('is-loading') || root.classList.contains('is-revealing');
-    if (!loading) depart();
+    if (!loading) {
+      if (state === 'intro') {
+        intro?.kill();
+        introFinished?.();
+      }
+      depart();
+    }
   };
+  const playIntro = () => new Promise(resolve => {
+    if (state !== 'waiting' || motion.matches || disposed) { resolve(); return; }
+    state = 'intro';
+    button.dataset.state = state;
+    const turn = { progress: 0 };
+    introFinished = () => {
+      introFinished = undefined;
+      state = 'waiting';
+      button.dataset.state = state;
+      coin.rotation.set(0, 0, 0);
+      glint.value = -10;
+      paint();
+      resolve();
+    };
+    intro = gsap.to(turn, { progress: 1, duration: 1.7, ease: 'power2.inOut', onUpdate: () => {
+      const p = turn.progress;
+      const wobble = Math.sin(Math.PI * p);
+      coin.rotation.set(Math.sin(p * TAU) * wobble * .28, p * TAU, Math.sin(p * TAU * 2) * wobble * .08);
+      const sweep = Math.min(1, Math.max(0, (p - .55) / .4));
+      glint.value = p > .96 ? -10 : mix(-3.4, 3.4, sweep);
+      paint();
+    }, onComplete: () => introFinished?.() });
+  });
   const hover = () => {
     if (state !== 'rest' || motion.matches || document.hidden) return;
     shine?.kill();
@@ -196,19 +212,21 @@ export async function initLogoMark() {
     }, onComplete: rest });
   };
   const resize = () => {
-    if (state === 'waiting' && !motion.matches) align();
+    if ((state === 'waiting' || state === 'intro') && !motion.matches) align();
     else if (state === 'flying') updateFlight();
     paint();
   };
   const preferences = () => {
     if (motion.matches) {
+      intro?.kill(); introFinished?.();
       flight?.kill(); spin?.kill(); shine?.kill();
+      delete root.dataset.logoReady;
       glint.value = -10;
       rest();
     }
   };
   const visibility = () => {
-    for (const animation of [flight, spin, shine]) {
+    for (const animation of [intro, flight, spin, shine]) {
       if (document.hidden) animation?.pause();
       else animation?.resume();
     }
@@ -225,6 +243,7 @@ export async function initLogoMark() {
   const dispose = event => {
     if (event.persisted) return;
     disposed = true;
+    intro?.kill(); introFinished?.();
     flight?.kill(); spin?.kill(); shine?.kill();
     cancelAnimationFrame(frame);
     observer.disconnect();
@@ -241,9 +260,20 @@ export async function initLogoMark() {
   window.addEventListener('pagehide', dispose);
   canvas.addEventListener('webglcontextlost', () => {
     button.dataset.renderer = 'fallback';
+    delete root.dataset.logoReady;
     dispose({ persisted: false });
     rest();
   }, { once: true });
   if (motion.matches || (!root.classList.contains('is-loading') && !root.classList.contains('is-revealing'))) rest();
-  else { button.disabled = true; button.dataset.state = state; align(); }
+  else {
+    button.disabled = true;
+    button.dataset.state = state;
+    align();
+    root.dataset.logoReady = 'true';
+  }
+  // Compile and draw the model before the intro clock starts, including on a cold GPU.
+  cancelAnimationFrame(frame);
+  frame = 0;
+  renderer.render(scene, camera);
+  return { playIntro };
 }
