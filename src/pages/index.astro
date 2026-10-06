@@ -27,6 +27,10 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   </head>
   <body>
     <div class="pixel-background" data-pixel-blast aria-hidden="true"></div>
+    <button class="logo-mark" type="button" aria-label="Spin the Memory(One) logo" title="Give it a spin">
+      <img class="logo-mark-fallback" src="/brand/memory-one-mark.svg" width="36" height="30" alt="" />
+      <canvas class="logo-mark-canvas" aria-hidden="true"></canvas>
+    </button>
     <Noise client:load patternSize={290} patternScaleX={1} patternScaleY={1} patternRefreshInterval={2} patternAlpha={10} />
     <div class="page-loader" role="status" aria-label="Loading page">
       <video class="loading-logo" width="1200" height="640" muted playsinline preload="auto" poster="/brand/memory-one-loading-poster.webp" aria-hidden="true">
@@ -62,7 +66,10 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
 <script>
   import '../lib/text-scramble';
   import { revealWhenReady } from '../lib/page-reveal';
-  revealWhenReady(import('../lib/pixel-blast'));
+  revealWhenReady(Promise.all([
+    import('../lib/pixel-blast'),
+    import('../lib/logo-mark').then(module => module.initLogoMark()),
+  ]));
 </script>
 
 <style>
@@ -98,6 +105,14 @@ const bookingUrl = 'https://calendar.proton.me/bookings#b9NbJYMsuem0nfaGQyDRKRfW
   :global(.is-loading) .page-loader, :global(.is-revealing) .page-loader { display: grid; }
   :global(.is-revealing) .page-loader { opacity: 0; pointer-events: none; }
   .loading-logo { display: block; width: min(45vw, 720px); height: auto; max-height: 50svh; object-fit: contain; }
+  .logo-mark { position: fixed; left: max(16px, env(safe-area-inset-left)); top: max(16px, env(safe-area-inset-top)); z-index: 3; width: 45px; height: 45px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #FF7F00; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  .logo-mark:focus-visible { outline: 2px solid #FF7F00; outline-offset: 5px; border-radius: 7px; }
+  .logo-mark:disabled { cursor: default; pointer-events: none; }
+  .logo-mark-fallback { width: 80%; height: auto; }
+  .logo-mark-canvas { display: none; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .logo-mark[data-renderer="webgl"] .logo-mark-canvas { display: block; }
+  .logo-mark[data-renderer="webgl"] .logo-mark-fallback { visibility: hidden; }
+  :global(.is-loading) .logo-mark, :global(.is-revealing) .logo-mark { pointer-events: none; }
   .github-button { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 2; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 7px; isolation: isolate; background: transparent; color: #CFCFC5; }
   .svg-container { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid rgb(156 156 156 / .466); border-radius: 10px; background: transparent; backdrop-filter: blur(0); transition: background-color .3s, backdrop-filter .3s; }
   .github-bg { position: absolute; inset: 0; z-index: -1; border-radius: 10px; background: #FF7F00; pointer-events: none; transition: transform .3s; }
