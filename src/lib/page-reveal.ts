@@ -6,9 +6,13 @@ export async function revealWhenReady(background: Promise<unknown>) {
   content!.inert = true;
   github!.inert = true;
   main?.setAttribute('aria-busy', 'true');
+  const video = document.querySelector<HTMLVideoElement>('.loading-logo');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Muted inline playback is allowed on mobile; keep the poster if playback fails.
+  const logo = video && !reducedMotion ? video.play().catch(() => {}) : Promise.resolve();
   const started = Number(root.dataset.loadStarted) || performance.now();
   const minimum = new Promise(resolve => setTimeout(resolve, Math.max(0, 2000 - (performance.now() - started))));
-  const assets = Promise.allSettled([document.fonts.ready, background]);
+  const assets = Promise.allSettled([document.fonts.ready, background, logo]);
   // Keep failed or stalled graphics from trapping the visitor behind the loader.
   let timeout: ReturnType<typeof setTimeout>;
   await Promise.all([minimum, Promise.race([assets, new Promise(resolve => { timeout = setTimeout(resolve, 8000); })])]);
@@ -22,6 +26,7 @@ export async function revealWhenReady(background: Promise<unknown>) {
       content!.inert = false;
       github!.inert = false;
       main?.removeAttribute('aria-busy');
+      video?.pause();
       document.querySelector('.page-loader')?.remove();
     };
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) finish();
